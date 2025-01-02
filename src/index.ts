@@ -125,13 +125,19 @@ const videoGeneration: Action = {
         elizaLogger.log("LUMA_API_KEY present:", !!lumaApiKey);
         return !!lumaApiKey;
     },
-    handler: async (
+    handler: async ({
+        runtime,
+        message,
+        state,
+        options,
+        callback,
+    }: {
         runtime: IAgentRuntime,
         message: Memory,
-        _state: State,
-        _options: any,
+        state: State,
+        options: any,
         callback: HandlerCallback
-    ) => {
+    }) => {
         elizaLogger.log("Video generation request:", message);
 
         // Clean up the prompt by removing mentions and commands
