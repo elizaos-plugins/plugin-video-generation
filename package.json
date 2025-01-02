@@ -13,5 +13,19 @@
   },
   "peerDependencies": {
     "whatwg-url": "7.1.0"
+  },
+  "pluginType": "elizaos:plugin:1.0.0",
+  "pluginParameters": {
+      "type": "object",
+      "required": ["lumaApiKey"],
+      "properties": {
+          "lumaApiKey": {
+              "type": "string",
+              "description": "API key for accessing Luma AI services"
+          }
+      }
+  },
+  "pluginEnv": {
+      "LUMA_API_KEY": "lumaApiKey"
   }
 }
