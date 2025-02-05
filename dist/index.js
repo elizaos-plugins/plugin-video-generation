@@ -1,6 +1,6 @@
 // src/index.ts
 import { elizaLogger } from "@elizaos/core";
-import fs from "fs";
+import fs from "node:fs";
 
 // src/constants.ts
 var LUMA_CONSTANTS = {
@@ -62,7 +62,7 @@ var generateVideo = async (prompt, runtime) => {
           error: errorText
         });
         throw new Error(
-          "Failed to check generation status: " + errorText
+          `Failed to check generation status: ${errorText}`
         );
       }
       const statusData = await statusResponse.json();
