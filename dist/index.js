@@ -11,6 +11,7 @@ var LUMA_CONSTANTS = {
 
 // src/index.ts
 var generateVideo = async (prompt, runtime) => {
+  var _a;
   const API_KEY = runtime.getSetting(LUMA_CONSTANTS.API_KEY_SETTING);
   try {
     elizaLogger.log("Starting video generation with prompt:", prompt);
@@ -69,7 +70,7 @@ var generateVideo = async (prompt, runtime) => {
       elizaLogger.log("Status check response:", statusData);
       status = statusData.state;
       if (status === "completed") {
-        videoUrl = statusData.assets?.video;
+        videoUrl = (_a = statusData.assets) == null ? void 0 : _a.video;
       }
     }
     if (status === "failed") {
